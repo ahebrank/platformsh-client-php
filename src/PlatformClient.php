@@ -88,11 +88,7 @@ class PlatformClient
 
         // Use the project locator.
         if ($url = $this->locateProject($id)) {
-            $project = Project::get($url, null, $this->connector->getClient());
-            if ($project && ($apiUrl = $this->connector->getApiUrl())) {
-                $project->setApiUrl($apiUrl);
-            }
-            return $project;
+            return Project::get($url, null, $this->connector->getClient());
         }
 
         return false;
