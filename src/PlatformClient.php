@@ -205,11 +205,7 @@ class PlatformClient
     {
         $scheme = $https ? 'https' : 'http';
         $collection = "$scheme://$hostname/api/projects";
-        $project = Project::get($id, $collection, $this->connector->getClient());
-        if ($project && ($apiUrl = $this->connector->getApiUrl())) {
-            $project->setApiUrl($apiUrl);
-        }
-        return $project;
+        return Project::get($id, $collection, $this->connector->getClient());
     }
 
     /**
